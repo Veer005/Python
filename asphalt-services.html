@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Asphalt Services | Pennsylvania Paving Company, LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --navy: #0E2841;
+      --navy-soft: #132b45;
+      --page-bg: #f5f5f7;
+      --orange: #E97132;
+      --orange-dark: #c65f28;
+      --teal: #156082;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { background: var(--page-bg); color: #111827; line-height: 1.5; }
+    a { text-decoration: none; }
+
+    .top-strip {
+      background: #0b2137;
+      color: #f9fafb;
+      padding: 6px 26px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo-img { height: 56px; width: 56px; border-radius: 50%; object-fit: cover; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-text span:first-child { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #cbd5f5; }
+    .logo-text span:last-child { font-weight: 700; font-size: 1.1rem; }
+
+    nav { display: flex; align-items: center; gap: 16px; font-size: 0.93rem; flex-wrap: wrap; }
+    nav a { color: #e5e7eb; }
+    nav a:hover { color: var(--orange); }
+
+    .btn-nav {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn-nav:hover { background: var(--orange); color: var(--navy); }
+
+    main { max-width: 980px; margin: 24px auto 0; padding: 0 18px 28px; }
+    h1 { font-size: 1.8rem; color: var(--navy); margin-bottom: 6px; }
+    h2 { font-size: 1.3rem; color: var(--navy); margin: 18px 0 6px; }
+    p { font-size: 0.96rem; color: #4b5563; margin-bottom: 10px; }
+    .section-intro { font-size: 0.98rem; margin-bottom: 14px; }
+    .pill {
+      display: inline-block;
+      font-size: 0.74rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #fef3e7;
+      color: var(--orange-dark);
+      margin-bottom: 4px;
+    }
+
+    .two-col { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px; align-items: flex-start; }
+    .highlight {
+      background: #fff7ed;
+      border-radius: 12px;
+      padding: 10px 12px;
+      border: 1px solid #fed7aa;
+      font-size: 0.9rem;
+      margin: 8px 0 16px;
+    }
+    ul { margin: 4px 0 10px 18px; font-size: 0.94rem; color: #4b5563; }
+
+    .image-wrapper { margin: 12px 0 16px; text-align: center; }
+    .image-wrapper img { max-width: 100%; border-radius: 16px; border: 1px solid #e5e7eb; }
+    .image-wrapper small { display: block; font-size: 0.8rem; color: #6b7280; margin-top: 4px; }
+
+    .cta-strip {
+      margin-top: 20px;
+      background: linear-gradient(120deg, var(--navy), var(--teal));
+      color: var(--white);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cta-strip h2 { color: var(--white); margin: 0 0 4px; }
+    .cta-strip p { color: #e5e7eb; margin: 0; font-size: 0.9rem; }
+    .btn-light {
+      background: var(--white);
+      color: var(--navy);
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-light:hover { background: #e5e7eb; }
+
+    footer {
+      background: var(--navy-soft);
+      color: #9ca3af;
+      padding: 14px 24px;
+      font-size: 0.82rem;
+      margin-top: 10px;
+      text-align: center;
+    }
+    footer a { color: #e5e7eb; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 18px; }
+      .top-strip { padding: 6px 16px; }
+      main { padding: 0 14px 22px; }
+      .two-col { grid-template-columns: minmax(0, 1fr); }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-strip">
+  <span>Complete asphalt services for homes &amp; businesses</span>
+  <span>Call: <strong>484-924-8570</strong></span>
+</div>
+
+<header>
+  <a href="index.html" class="logo-area">
+    <img src="assets/logo.png" alt="Pennsylvania Paving Company logo" class="logo-img" />
+    <div class="logo-text">
+      <span>Pennsylvania</span>
+      <span>Paving Company, LLC</span>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="asphalt-services.html">Asphalt</a>
+    <a href="gravel.html">Gravel</a>
+    <a href="patching-restoration.html">Patching</a>
+    <a href="gallery.html">Before/After</a>
+    <a href="contact.html" class="btn-nav">Free Estimate</a>
+    <a href="login.html">Client Login</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Asphalt Services</h1>
+  <p class="section-intro">
+    Asphalt is at the center of what we do. From new installations to overlays, resurfacing,
+    and sealcoating, our goal is to deliver smooth, durable pavement that drains correctly
+    and looks sharp for years.
+  </p>
+
+  <div class="two-col" id="parking-lots">
+    <div>
+      <span class="pill">Commercial asphalt</span>
+      <h2>Asphalt parking lot installation &amp; repair</h2>
+      <p>
+        A well-built parking lot gives customers a good first impression and keeps traffic moving safely.
+        We install new lots and repair existing ones for office buildings, churches, retail centers, and HOAs.
+      </p>
+      <ul>
+        <li>Site evaluation, measurements, and base preparation.</li>
+        <li>Proper grading for drainage and safe vehicle movement.</li>
+        <li>Installation of hot-mix asphalt and machine compaction.</li>
+        <li>Line striping, accessible parking, and traffic markings.</li>
+      </ul>
+      <div class="highlight">
+        We plan around your hours to reduce disruption, and we communicate clearly so you and your tenants
+        know what to expect.
+      </div>
+    </div>
+    <div class="image-wrapper">
+      <img src="assets/asphalt-parking-lot.jpg" alt="Freshly paved asphalt parking lot with striping" />
+      <small>New and resurfaced parking lots with clean striping and traffic flow.</small>
+    </div>
+  </div>
+
+  <div class="two-col" id="driveways">
+    <div class="image-wrapper">
+      <img src="assets/asphalt-driveway.jpg" alt="New asphalt driveway in front of home" />
+      <small>Driveway replacement and extensions tailored to your property.</small>
+    </div>
+    <div>
+      <span class="pill">Residential asphalt</span>
+      <h2>Asphalt driveway installation &amp; repair</h2>
+      <p>
+        Driveways see daily use and weather. When they crack, sink, or break apart, we can repair
+        or replace them with a new asphalt surface built on a solid base.
+      </p>
+      <ul>
+        <li>Removal of failing or severely cracked asphalt when needed.</li>
+        <li>Base repair, grading, and compaction for a solid foundation.</li>
+        <li>New driveway layouts and extensions for added parking space.</li>
+        <li>Attention to water flow so runoff goes away from your home and garage.</li>
+      </ul>
+      <p>
+        We provide clear instructions on how long to stay off the driveway after paving, and how to care
+        for it in the first year.
+      </p>
+    </div>
+  </div>
+
+  <div id="overlay">
+    <span class="pill">Cost-effective option</span>
+    <h2>Asphalt overlay</h2>
+    <p>
+      If your pavement is worn but the base is still in good condition, an overlay can be a smart choice.
+      We apply a new layer of asphalt over the existing surface and address problem areas first.
+    </p>
+    <ul>
+      <li>Suitable when cracking and wear are moderate, not severe.</li>
+      <li>Can improve ride quality and appearance without full replacement.</li>
+      <li>Often paired with patching where underlying damage exists.</li>
+    </ul>
+  </div>
+
+  <div id="sealcoating">
+    <span class="pill">Protection</span>
+    <h2>Asphalt sealcoating</h2>
+    <p>
+      Sealcoating helps protect asphalt from sun, salt, oil, and water intrusion. While it doesn’t fix
+      structural problems, it can extend the life of driveways and parking lots when done at the right time.
+    </p>
+    <ul>
+      <li>Recommended after repairs or a new installation has properly cured.</li>
+      <li>Helps resist surface wear and keeps pavement looking uniform.</li>
+      <li>Best when combined with crack filling and patching as needed.</li>
+    </ul>
+  </div>
+
+  <div class="cta-strip">
+    <div>
+      <h2>Need asphalt work done?</h2>
+      <p>From small repairs to full parking lot projects, we’re ready to help.</p>
+    </div>
+    <div>
+      <a href="tel:14849248570" class="btn-light">Call 484-924-8570</a>
+      <a href="contact.html" class="btn-light" style="margin-left: 6px;">Request a free estimate</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Pennsylvania Paving Company, LLC. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

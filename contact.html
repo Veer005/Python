@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | Pennsylvania Paving Company, LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --navy: #0E2841;
+      --navy-soft: #132b45;
+      --page-bg: #f5f5f7;
+      --orange: #E97132;
+      --orange-dark: #c65f28;
+      --teal: #156082;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { background: var(--page-bg); color: #111827; line-height: 1.5; }
+    a { text-decoration: none; }
+
+    .top-strip {
+      background: #0b2137;
+      color: #f9fafb;
+      padding: 6px 26px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo-img { height: 56px; width: 56px; border-radius: 50%; object-fit: cover; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-text span:first-child { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #cbd5f5; }
+    .logo-text span:last-child { font-weight: 700; font-size: 1.1rem; }
+    nav { display: flex; align-items: center; gap: 16px; font-size: 0.93rem; flex-wrap: wrap; }
+    nav a { color: #e5e7eb; }
+    nav a:hover { color: var(--orange); }
+    .btn-nav {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn-nav:hover { background: var(--orange); color: var(--navy); }
+
+    main { max-width: 980px; margin: 24px auto 0; padding: 0 18px 28px; }
+    h1 { font-size: 1.8rem; color: var(--navy); margin-bottom: 6px; }
+    p { font-size: 0.96rem; color: #4b5563; margin-bottom: 10px; }
+
+    .grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; }
+    form { background: var(--white); border-radius: 16px; padding: 16px 16px 14px; border: 1px solid #e5e7eb; box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05); }
+    label { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; display: block; }
+    input, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 0.9rem;
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--navy);
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--orange-dark); color: var(--white); }
+    .note { font-size: 0.8rem; color: #6b7280; margin-top: 4px; }
+
+    .contact-info {
+      font-size: 0.9rem;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+    }
+    .contact-info h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; }
+    .contact-info p { margin-bottom: 6px; }
+    .map-placeholder {
+      margin-top: 10px;
+      background: #e5e7eb;
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    footer {
+      background: var(--navy-soft);
+      color: #9ca3af;
+      padding: 14px 24px;
+      font-size: 0.82rem;
+      margin-top: 10px;
+      text-align: center;
+    }
+    footer a { color: #e5e7eb; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 18px; }
+      .top-strip { padding: 6px 16px; }
+      main { padding: 0 14px 22px; }
+      .grid { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-strip">
+  <span>Contact Pennsylvania Paving Company for a free estimate.</span>
+  <span>Call: <strong>484-924-8570</strong></span>
+</div>
+
+<header>
+  <a href="index.html" class="logo-area">
+    <img src="assets/logo.png" alt="Pennsylvania Paving Company logo" class="logo-img" />
+    <div class="logo-text">
+      <span>Pennsylvania</span>
+      <span>Paving Company, LLC</span>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="asphalt-services.html">Asphalt</a>
+    <a href="gravel.html">Gravel</a>
+    <a href="patching-restoration.html">Patching</a>
+    <a href="gallery.html">Before/After</a>
+    <a href="contact.html" class="btn-nav">Free Estimate</a>
+    <a href="login.html">Client Login</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Contact Us</h1>
+  <p>
+    Use the form below or give us a call to schedule your free estimate. Please share a few details
+    about your driveway, parking lot, or gravel project so we can prepare for your call.
+  </p>
+
+  <div class="grid">
+    <form>
+      <div class="form-row">
+        <div>
+          <label for="firstName">First name*</label>
+          <input id="firstName" type="text" required placeholder="First name" />
+        </div>
+        <div>
+          <label for="lastName">Last name*</label>
+          <input id="lastName" type="text" required placeholder="Last name" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="phone">Phone*</label>
+          <input id="phone" type="tel" required placeholder="Best number to reach you" />
+        </div>
+        <div>
+          <label for="email">Email*</label>
+          <input id="email" type="email" required placeholder="you@example.com" />
+        </div>
+      </div>
+      <div>
+        <label for="address">Address*</label>
+        <input id="address" type="text" required placeholder="Street, city, state" />
+      </div>
+      <div>
+        <label for="message">Message*</label>
+        <textarea id="message" required placeholder="Tell us about your project, size, and any concerns (cracks, drainage, etc.)."></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Send message</button>
+      <p class="note">
+        This demo form is not yet connected to email or a CRM. Your developer can wire it to send
+        messages to your preferred address or system.
+      </p>
+    </form>
+
+    <aside class="contact-info">
+      <h2>Our office</h2>
+      <p><strong>Address:</strong><br>512 W Uwchlan Ave<br>Downingtown, PA 19335</p>
+      <p><strong>Phone:</strong> 484-924-8570</p>
+      <p><strong>Hours:</strong> Monday – Friday, 8:00 am – 5:00 pm</p>
+      <p><strong>Service area:</strong> Downingtown and surrounding communities.</p>
+
+      <div class="map-placeholder">
+        Map placeholder – your developer can embed a Google Map iframe here.
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Pennsylvania Paving Company, LLC. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pennsylvania Paving Company, LLC - Invoicing Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #111827;
+      color: #ffffff;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+    }
+
+    .top-nav a:hover {
+      color: #fbbf24;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #fbbf24;
+      color: #111827;
+    }
+
+    .btn-primary:hover {
+      background: #f59e0b;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fbbf24;
+      border: 1px solid #fbbf24;
+    }
+
+    .layout {
+      padding: 24px 18px 32px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .page-title h1 {
+      font-size: 1.5rem;
+    }
+
+    .page-title p {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .grid-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .summary-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 5px 12px rgba(15, 23, 42, 0.05);
+    }
+
+    .summary-label {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .summary-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .summary-sub {
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 16px 16px 14px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .card-header h2 {
+      font-size: 1.1rem;
+    }
+
+    .card-header small {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 6px;
+    }
+
+    thead {
+      background: #f9fafb;
+    }
+
+    th, td {
+      padding: 8px 8px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: middle;
+    }
+
+    th {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #6b7280;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .status-pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+
+    .status-paid {
+      background: #ecfdf3;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
+    .status-outstanding {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .status-overdue {
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    input, select {
+      padding: 7px 8px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 0.86rem;
+      width: 100%;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .note {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-top: 6px;
+    }
+
+    .clients-list {
+      list-style: none;
+      margin-top: 8px;
+      font-size: 0.86rem;
+    }
+
+    .clients-list li {
+      padding: 6px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .clients-list li:last-child {
+      border-bottom: none;
+    }
+
+    .badge-small {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: #eef2ff;
+      color: #4f46e5;
+      margin-left: 6px;
+    }
+
+    .top-right-text {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 920px) {
+      .main-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .layout {
+        padding: 18px 12px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Pennsylvania Paving Company, LLC</div>
+  <div class="top-nav">
+    <span class="top-right-text">Client Portal</span>
+    <a href="index.html">Home</a>
+    <a href="login.html">Logout</a>
+  </div>
+</header>
+
+<div class="layout">
+  <div class="page-title">
+    <div>
+      <h1>Invoicing Dashboard</h1>
+      <p>View invoice status and create new invoices for your paving projects.</p>
+    </div>
+    <button id="newInvoiceButton" class="btn btn-primary">Create new invoice</button>
+  </div>
+
+  <!-- Summary cards -->
+  <div class="grid-summary">
+    <div class="summary-card" id="cardOutstanding">
+      <div class="summary-label">Outstanding balance</div>
+      <div class="summary-value" id="outstandingTotal">$8,750.00</div>
+      <div class="summary-sub">5 open invoices</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Paid in last 30 days</div>
+      <div class="summary-value" id="paidTotal">$14,200.00</div>
+      <div class="summary-sub">9 invoices paid</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Overdue</div>
+      <div class="summary-value" id="overdueTotal">$1,200.00</div>
+      <div class="summary-sub">2 invoices past due</div>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <!-- Invoices table -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2>Invoices</h2>
+          <small>Click "Create new invoice" to add another row.</small>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Invoice</th>
+            <th>Client</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="invoiceTableBody">
+          <tr data-status="outstanding" data-amount="3500">
+            <td>#INV-1001</td>
+            <td>Oakridge HOA - Driveway resurfacing</td>
+            <td>2025-11-01</td>
+            <td>$3,500.00</td>
+            <td><span class="status-pill status-outstanding">Outstanding</span></td>
+          </tr>
+          <tr data-status="paid" data-amount="2200">
+            <td>#INV-1002</td>
+            <td>Smith Residence - New driveway</td>
+            <td>2025-10-22</td>
+            <td>$2,200.00</td>
+            <td><span class="status-pill status-paid">Paid</span></td>
+          </tr>
+          <tr data-status="overdue" data-amount="1200">
+            <td>#INV-1003</td>
+            <td>Maple Plaza - Parking lot repair</td>
+            <td>2025-10-10</td>
+            <td>$1,200.00</td>
+            <td><span class="status-pill status-overdue">Overdue</span></td>
+          </tr>
+          <tr data-status="paid" data-amount="6000">
+            <td>#INV-1004</td>
+            <td>Greenfield Church - Lot resurfacing</td>
+            <td>2025-10-05</td>
+            <td>$6,000.00</td>
+            <td><span class="status-pill status-paid">Paid</span></td>
+          </tr>
+          <tr data-status="outstanding" data-amount="5250">
+            <td>#INV-1005</td>
+            <td>Hilltop Offices - Sealcoating</td>
+            <td>2025-11-15</td>
+            <td>$5,250.00</td>
+            <td><span class="status-pill status-outstanding">Outstanding</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">
+        This is a front end prototype only. In a real system, invoices would be loaded from your database or accounting software.
+      </p>
+    </div>
+
+    <!-- New invoice form and clients -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2>Create new invoice</h2>
+          <small>Use this form to add a sample invoice to the table.</small>
+        </div>
+      </div>
+      <form id="invoiceForm">
+        <div>
+          <label for="clientName">Client name</label>
+          <input id="clientName" type="text" required placeholder="Example: Johnson Residence - Driveway" />
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="invoiceNumber">Invoice number</label>
+            <input id="invoiceNumber" type="text" required placeholder="#INV-1006" />
+          </div>
+          <div>
+            <label for="invoiceDate">Date</label>
+            <input id="invoiceDate" type="date" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="invoiceAmount">Amount (USD)</label>
+            <input id="invoiceAmount" type="number" min="0" step="0.01" required placeholder="3500.00" />
+          </div>
+          <div>
+            <label for="invoiceStatus">Status</label>
+            <select id="invoiceStatus" required>
+              <option value="outstanding">Outstanding</option>
+              <option value="paid">Paid</option>
+              <option value="overdue">Overdue</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Save invoice</button>
+        </div>
+      </form>
+      <p class="note">
+        This form updates the table and summary totals in your browser only. In production, it would send data to your backend.
+      </p>
+
+      <hr style="margin: 12px 0; border: none; border-top: 1px solid #e5e7eb;">
+
+      <h3 style="font-size: 0.98rem; margin-bottom: 4px;">Key clients</h3>
+      <ul class="clients-list">
+        <li>Oakridge HOA<span class="badge-small">Community</span></li>
+        <li>Maple Plaza Retail Center<span class="badge-small">Commercial</span></li>
+        <li>Greenfield Church<span class="badge-small">Non-profit</span></li>
+        <li>Residential homeowners across Pennsylvania<span class="badge-small">Residential</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function formatCurrency(value) {
+    return "$" + value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function recalcTotals() {
+    const rows = document.querySelectorAll("#invoiceTableBody tr");
+    let outstanding = 0;
+    let paid = 0;
+    let overdue = 0;
+
+    rows.forEach(row => {
+      const status = row.getAttribute("data-status");
+      const amount = parseFloat(row.getAttribute("data-amount")) || 0;
+      if (status === "outstanding") outstanding += amount;
+      if (status === "paid") paid += amount;
+      if (status === "overdue") overdue += amount;
+    });
+
+    document.getElementById("outstandingTotal").textContent = formatCurrency(outstanding);
+    document.getElementById("paidTotal").textContent = formatCurrency(paid);
+    document.getElementById("overdueTotal").textContent = formatCurrency(overdue);
+  }
+
+  recalcTotals();
+
+  document.getElementById("invoiceForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const clientName = document.getElementById("clientName").value.trim();
+    const invoiceNumber = document.getElementById("invoiceNumber").value.trim();
+    const date = document.getElementById("invoiceDate").value;
+    const amountValue = parseFloat(document.getElementById("invoiceAmount").value);
+    const status = document.getElementById("invoiceStatus").value;
+
+    if (!clientName || !invoiceNumber || !date || isNaN(amountValue)) {
+      return;
+    }
+
+    const tbody = document.getElementById("invoiceTableBody");
+    const tr = document.createElement("tr");
+    tr.setAttribute("data-status", status);
+    tr.setAttribute("data-amount", amountValue.toString());
+
+    const tdInvoice = document.createElement("td");
+    tdInvoice.textContent = invoiceNumber;
+
+    const tdClient = document.createElement("td");
+    tdClient.textContent = clientName;
+
+    const tdDate = document.createElement("td");
+    tdDate.textContent = date;
+
+    const tdAmount = document.createElement("td");
+    tdAmount.textContent = formatCurrency(amountValue);
+
+    const tdStatus = document.createElement("td");
+    const span = document.createElement("span");
+    span.classList.add("status-pill");
+    if (status === "paid") span.classList.add("status-paid");
+    if (status === "outstanding") span.classList.add("status-outstanding");
+    if (status === "overdue") span.classList.add("status-overdue");
+    span.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+    tdStatus.appendChild(span);
+
+    tr.appendChild(tdInvoice);
+    tr.appendChild(tdClient);
+    tr.appendChild(tdDate);
+    tr.appendChild(tdAmount);
+    tr.appendChild(tdStatus);
+    tbody.appendChild(tr);
+
+    recalcTotals();
+    e.target.reset();
+  });
+
+  document.getElementById("newInvoiceButton").addEventListener("click", function () {
+    const firstField = document.getElementById("clientName");
+    firstField.scrollIntoView({ behavior: "smooth", block: "start" });
+    firstField.focus();
+  });
+</script>
+
+</body>
+</html>

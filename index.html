@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pennsylvania Paving Company, LLC | Asphalt Paving in Downingtown, PA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pennsylvania Paving Company, LLC provides asphalt paving, driveway installation, parking lot repair, gravel driveways, and patching services in Downingtown, PA and nearby areas." />
+  <style>
+    :root {
+      --navy: #0E2841;
+      --navy-soft: #132b45;
+      --light-gray: #E8E8E8;
+      --page-bg: #f5f5f7;
+      --orange: #E97132;
+      --orange-dark: #c65f28;
+      --teal: #156082;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { background: var(--page-bg); color: #111827; line-height: 1.5; }
+    a { text-decoration: none; }
+
+    .top-strip {
+      background: #0b2137;
+      color: #f9fafb;
+      padding: 6px 26px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-strip strong { color: #fcd9c0; }
+
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo-img { height: 56px; width: 56px; border-radius: 50%; object-fit: cover; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-text span:first-child { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #cbd5f5; }
+    .logo-text span:last-child { font-weight: 700; font-size: 1.1rem; }
+
+    nav { display: flex; align-items: center; gap: 16px; font-size: 0.93rem; flex-wrap: wrap; }
+    nav a { color: #e5e7eb; }
+    nav a:hover { color: var(--orange); }
+
+    .btn-nav {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn-nav:hover {
+      background: var(--orange);
+      color: var(--navy);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      max-width: 1180px;
+      margin: 24px auto 0;
+      padding: 0 18px 32px;
+      gap: 24px;
+      align-items: center;
+    }
+    .hero-left h2 {
+      font-size: 1.1rem;
+      color: var(--teal);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .hero-left h1 {
+      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+    .hero-left p {
+      font-size: 0.98rem;
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .badge {
+      font-size: 0.8rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #e0ecf5;
+      color: var(--navy);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--navy);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .btn-primary:hover { background: var(--orange-dark); color: var(--white); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-outline:hover { background: var(--teal); color: var(--white); }
+    .hero-note { font-size: 0.85rem; color: #6b7280; }
+
+    .hero-right {
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+      border-radius: 20px;
+      color: var(--white);
+      padding: 16px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%;
+      border-radius: 14px;
+      margin-top: 10px;
+      max-height: 230px;
+      object-fit: cover;
+    }
+    .hero-right h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .hero-right p { font-size: 0.9rem; color: #d1d5db; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+      font-size: 0.8rem;
+    }
+    .stat {
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 12px;
+      padding: 8px;
+    }
+    .stat-label { font-size: 0.72rem; color: #9ca3af; }
+    .stat-value { font-weight: 700; font-size: 0.95rem; }
+
+    section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 18px 8px;
+    }
+    .section-title { font-size: 1.5rem; color: var(--navy); margin-bottom: 6px; }
+    .section-intro { font-size: 0.95rem; color: #4b5563; margin-bottom: 16px; }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px 14px 12px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+      border: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+    }
+    .card h3 { font-size: 1.02rem; margin-bottom: 6px; color: var(--navy); }
+    .pill {
+      display: inline-block;
+      font-size: 0.74rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #fef3e7;
+      color: var(--orange-dark);
+      margin-bottom: 5px;
+    }
+    .link-more { font-size: 0.85rem; color: var(--teal); margin-top: 6px; display: inline-block; }
+    .link-more:hover { text-decoration: underline; }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .highlight {
+      background: #fff7ed;
+      border-radius: 12px;
+      padding: 10px 12px;
+      border: 1px solid #fed7aa;
+      font-size: 0.86rem;
+      color: #7c2d12;
+      margin-top: 12px;
+    }
+    .list-check { list-style: none; padding-left: 0; font-size: 0.9rem; }
+    .list-check li { margin-bottom: 6px; position: relative; padding-left: 18px; }
+    .list-check li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #16a34a;
+      font-size: 0.85rem;
+    }
+
+    .reviews {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+      border: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+    }
+    .reviews h3 { font-size: 1.02rem; margin-bottom: 5px; }
+    .star { color: #facc15; }
+    .review-item { margin-top: 8px; border-top: 1px solid #e5e7eb; padding-top: 6px; }
+    .review-name { font-weight: 600; font-size: 0.9rem; }
+    .review-date { font-size: 0.75rem; color: #9ca3af; }
+    .review-text { font-size: 0.86rem; color: #4b5563; margin-top: 3px; }
+
+    .contact-strip {
+      margin-top: 24px;
+      margin-bottom: 10px;
+      background: linear-gradient(120deg, var(--navy), var(--teal));
+      color: var(--white);
+      border-radius: 18px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+    .contact-strip h2 { font-size: 1.2rem; }
+    .contact-strip p { font-size: 0.9rem; color: #e5e7eb; }
+    .contact-strip .phone { font-size: 1.1rem; font-weight: 700; margin-top: 4px; }
+    .contact-strip .small { font-size: 0.8rem; color: #cbd5f5; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .btn-light {
+      background: var(--white);
+      color: var(--navy);
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-light:hover { background: #e5e7eb; }
+
+    footer {
+      background: var(--navy-soft);
+      color: #9ca3af;
+      padding: 14px 24px;
+      font-size: 0.82rem;
+      margin-top: 26px;
+      text-align: center;
+    }
+    footer a { color: #e5e7eb; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1fr); }
+      .two-column { grid-template-columns: minmax(0, 1fr); }
+      .contact-strip { grid-template-columns: minmax(0, 1fr); }
+      header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+    @media (max-width: 600px) {
+      .hero, section { padding: 18px 14px 8px; }
+      .top-strip { padding: 6px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-strip">
+  <div>
+    <span><strong>Reliable, professional asphalt paving</strong> in Downingtown, PA</span>
+  </div>
+  <div>
+    <span>Licensed &amp; Insured: <strong>PA140696</strong></span>
+    <span> | </span>
+    <span>Call: <strong>484-924-8570</strong></span>
+  </div>
+</div>
+
+<header>
+  <a href="index.html" class="logo-area">
+    <img src="assets/logo.png" alt="Pennsylvania Paving Company logo" class="logo-img" />
+    <div class="logo-text">
+      <span>Pennsylvania</span>
+      <span>Paving Company, LLC</span>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="asphalt-services.html">Asphalt</a>
+    <a href="gravel.html">Gravel</a>
+    <a href="patching-restoration.html">Patching</a>
+    <a href="gallery.html">Before/After</a>
+    <a href="contact.html" class="btn-nav">Free Estimate</a>
+    <a href="login.html">Client Login</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h2>Experienced · Driven · Licensed · Insured</h2>
+      <h1>First-class asphalt paving service you can count on.</h1>
+      <p>
+        Pennsylvania Paving Company, LLC provides complete asphalt, gravel, and restoration
+        services for homes, businesses, churches, and HOAs in and around Downingtown, PA.
+        We focus on quality work, honest communication, and clean job sites.
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge">Asphalt driveways</span>
+        <span class="badge">Parking lots</span>
+        <span class="badge">Sealcoating</span>
+        <span class="badge">Patching &amp; restoration</span>
+        <span class="badge">Gravel &amp; grading</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="contact.html" class="btn-primary">Request a free estimate</a>
+        <a href="gallery.html" class="btn-outline">View before &amp; after projects</a>
+      </div>
+
+      <p class="hero-note">
+        We understand paving can disrupt your routine. Our goal is to make the process as smooth
+        and low-stress as possible from first call to final sweep.
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <h3>We’ll pave the way.</h3>
+      <p>
+        From driveway installations to commercial parking lots, our crew brings the experience
+        and equipment to do the job right the first time.
+      </p>
+      <!-- Replace with a real photo from your assets -->
+      <img src="assets/hero-main.jpg" alt="Asphalt paving crew at work" />
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-label">Google rating</div>
+          <div class="stat-value">4.9 / 5</div>
+          <div class="stat-label">Based on 80+ reviews</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Projects completed</div>
+          <div class="stat-value">1000+</div>
+          <div class="stat-label">Residential &amp; commercial</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Service area</div>
+          <div class="stat-value">Downingtown, PA</div>
+          <div class="stat-label">and surrounding communities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section>
+    <h2 class="section-title">Quality services we offer</h2>
+    <p class="section-intro">
+      Whether you need a new asphalt driveway, a parking lot resurfaced, or a fresh gravel lane,
+      we provide dependable service with clear expectations and timelines.
+    </p>
+
+    <div class="cards-grid">
+      <article class="card">
+        <span class="pill">Commercial asphalt</span>
+        <h3>Asphalt parking lot install &amp; repair</h3>
+        <p>
+          We install and repair parking lots for shopping centers, offices, churches, and HOAs.
+          We coordinate schedules and traffic flow so your business can keep moving.
+        </p>
+        <a href="asphalt-services.html#parking-lots" class="link-more">Parking lot services →</a>
+      </article>
+
+      <article class="card">
+        <span class="pill">Residential asphalt</span>
+        <h3>Driveway installation &amp; repair</h3>
+        <p>
+          From tired, cracked driveways to full replacements, our team handles base work,
+          grading, and paving for a clean, long-lasting finish.
+        </p>
+        <a href="asphalt-services.html#driveways" class="link-more">Driveways &amp; FAQs →</a>
+      </article>
+
+      <article class="card">
+        <span class="pill">Gravel</span>
+        <h3>Gravel driveway installation &amp; grading</h3>
+        <p>
+          Cost-effective gravel and dirt driveway solutions with proper grading for drainage,
+          ideal for longer lanes, rural properties, and access roads.
+        </p>
+        <a href="gravel.html" class="link-more">Gravel &amp; grading →</a>
+      </article>
+
+      <article class="card">
+        <span class="pill">Maintenance</span>
+        <h3>Patching, restoration &amp; sealcoating</h3>
+        <p>
+          Keep your pavement in good shape with patching, surface restoration, and sealcoating
+          tailored to Pennsylvania’s freeze-thaw cycles.
+        </p>
+        <a href="patching-restoration.html" class="link-more">Patching &amp; restoration →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- WHY + REVIEWS -->
+  <section>
+    <div class="two-column">
+      <div>
+        <h2 class="section-title">Why customers choose Pennsylvania Paving Company</h2>
+        <p class="section-intro">
+          We know you have options. Our focus is simple: do what we say we’ll do, and stand by the work.
+        </p>
+
+        <ul class="list-check">
+          <li>Clear, detailed written estimates before any work begins.</li>
+          <li>Experienced technicians who know how to handle tough grading and drainage issues.</li>
+          <li>Attention to water flow, so water runs away from your home and buildings.</li>
+          <li>Neat work areas and thorough cleanup when the job is finished.</li>
+          <li>Quick responses to calls and texts throughout the project.</li>
+        </ul>
+
+        <div class="highlight">
+          <strong>Location:</strong> 512 W Uwchlan Ave, Downingtown, PA 19335<br />
+          <strong>Hours:</strong> Monday – Friday, 8:00 am – 5:00 pm (no overtime rates)<br />
+          <strong>Phone:</strong> 484-924-8570
+        </div>
+      </div>
+
+      <aside class="reviews">
+        <h3>Client reviews</h3>
+        <div><span class="star">★★★★★</span> <span>Google rating: 4.9 / 5 (80+ reviews)</span></div>
+
+        <div class="review-item">
+          <div class="review-name">Sean M.</div>
+          <div class="review-date">October 2023</div>
+          <div class="review-text">
+            Driveway replacement was scheduled quickly and completed with great quality. No pressure, clear communication.
+          </div>
+        </div>
+
+        <div class="review-item">
+          <div class="review-name">Dave G.</div>
+          <div class="review-date">September 2023</div>
+          <div class="review-text">
+            Parking lot resurfacing was done on time at a fair price. We’ll be using them again.
+          </div>
+        </div>
+
+        <div class="review-item">
+          <div class="review-name">Danielle S.</div>
+          <div class="review-date">September 2023</div>
+          <div class="review-text">
+            Our new driveway and extension look fantastic, and the process from estimate to finish was easy.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONTACT STRIP -->
+  <section>
+    <div class="contact-strip">
+      <div>
+        <h2>Ready for a free estimate?</h2>
+        <p>
+          Tell us about your driveway, parking lot, or gravel project, and we’ll schedule a visit,
+          often within a few business days.
+        </p>
+        <div class="phone">Call now: 484-924-8570</div>
+        <div class="small">Or send us a message and we’ll get back to you as soon as we can.</div>
+      </div>
+      <div class="contact-actions">
+        <a href="tel:14849248570" class="btn-light">Call 484-924-8570</a>
+        <a href="contact.html" class="btn-light">Contact form</a>
+        <a href="login.html" class="btn-light">Client portal</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Pennsylvania Paving Company, LLC. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Before &amp; After Gallery | Pennsylvania Paving Company, LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --navy: #0E2841;
+      --navy-soft: #132b45;
+      --page-bg: #f5f5f7;
+      --orange: #E97132;
+      --orange-dark: #c65f28;
+      --teal: #156082;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { background: var(--page-bg); color: #111827; line-height: 1.5; }
+    a { text-decoration: none; }
+
+    .top-strip {
+      background: #0b2137;
+      color: #f9fafb;
+      padding: 6px 26px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo-img { height: 56px; width: 56px; border-radius: 50%; object-fit: cover; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-text span:first-child { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #cbd5f5; }
+    .logo-text span:last-child { font-weight: 700; font-size: 1.1rem; }
+    nav { display: flex; align-items: center; gap: 16px; font-size: 0.93rem; flex-wrap: wrap; }
+    nav a { color: #e5e7eb; }
+    nav a:hover { color: var(--orange); }
+    .btn-nav {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn-nav:hover { background: var(--orange); color: var(--navy); }
+
+    .page { max-width: 1120px; margin: 24px auto 0; padding: 0 20px 36px; }
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .page-header h1 { font-size: 1.7rem; color: var(--navy); margin-bottom: 4px; }
+    .page-header p { font-size: 0.95rem; color: #4b5563; }
+    .btn-primary {
+      background: var(--orange);
+      color: var(--navy);
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--orange-dark); color: var(--white); }
+
+    .info-note { font-size: 0.85rem; color: #6b7280; margin-bottom: 18px; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .gallery-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e5e7eb;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .gallery-side {
+      position: relative;
+      overflow: hidden;
+      border-right: 1px solid #e5e7eb;
+    }
+    .gallery-side:last-child { border-right: none; }
+    .gallery-side img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+    .label-pill {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: rgba(17, 24, 39, 0.8);
+      color: #f9fafb;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .gallery-content { padding: 10px 14px 12px; }
+    .gallery-content h2 { font-size: 1rem; margin-bottom: 4px; color: var(--navy); }
+    .gallery-content p { font-size: 0.85rem; color: #4b5563; }
+    .tag-row { margin-top: 6px; font-size: 0.78rem; color: #6b7280; }
+    .tag {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      margin-right: 6px;
+      font-size: 0.75rem;
+    }
+
+    footer {
+      background: var(--navy-soft);
+      color: #9ca3af;
+      padding: 14px 24px;
+      font-size: 0.82rem;
+      margin-top: 10px;
+      text-align: center;
+    }
+    footer a { color: #e5e7eb; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      header { flex-direction: column; align-items: flex-start; gap: 8px; padding: 10px 18px; }
+      .top-strip { padding: 6px 16px; }
+      .page { padding: 0 14px 28px; }
+      .gallery-row { grid-template-columns: 1fr; }
+      .gallery-side { border-right: none; border-bottom: 1px solid #e5e7eb; }
+      .gallery-side:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-strip">
+  <span>See the difference professional paving makes.</span>
+  <span>Call: <strong>484-924-8570</strong></span>
+</div>
+
+<header>
+  <a href="index.html" class="logo-area">
+    <img src="assets/logo.png" alt="Pennsylvania Paving Company logo" class="logo-img" />
+    <div class="logo-text">
+      <span>Pennsylvania</span>
+      <span>Paving Company, LLC</span>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="asphalt-services.html">Asphalt</a>
+    <a href="gravel.html">Gravel</a>
+    <a href="patching-restoration.html">Patching</a>
+    <a href="gallery.html">Before/After</a>
+    <a href="contact.html" class="btn-nav">Free Estimate</a>
+    <a href="login.html">Client Login</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="page-header">
+    <div>
+      <h1>Before &amp; After Gallery</h1>
+      <p>See how Pennsylvania Paving Company, LLC transforms driveways and parking lots.</p>
+    </div>
+    <a href="contact.html" class="btn-primary">Request an estimate</a>
+  </div>
+
+  <p class="info-note">
+    Replace the placeholder image paths below with your own photos stored in the <code>assets</code> folder.
+    For each job, show one “before” photo and one “after” photo that highlight the improvement.
+  </p>
+
+  <section class="gallery-grid">
+
+    <!-- PROJECT 1 -->
+    <article class="gallery-card">
+      <div class="gallery-row">
+        <div class="gallery-side">
+          <img src="assets/before-driveway-1.jpg" alt="Cracked driveway before paving" />
+          <span class="label-pill">Before</span>
+        </div>
+        <div class="gallery-side">
+          <img src="assets/after-driveway-1.jpg" alt="New asphalt driveway after paving" />
+          <span class="label-pill">After</span>
+        </div>
+      </div>
+      <div class="gallery-content">
+        <h2>Residential driveway resurfacing</h2>
+        <p>
+          We removed a cracked, uneven driveway and installed a smooth asphalt surface with proper slope
+          so water drains toward the lawn instead of the garage.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Residential</span>
+          <span class="tag">Driveway</span>
+          <span class="tag">Resurfacing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 2 -->
+    <article class="gallery-card">
+      <div class="gallery-row">
+        <div class="gallery-side">
+          <img src="assets/before-parking-1.jpg" alt="Worn parking lot before paving" />
+          <span class="label-pill">Before</span>
+        </div>
+        <div class="gallery-side">
+          <img src="assets/after-parking-1.jpg" alt="Freshly paved and striped parking lot" />
+          <span class="label-pill">After</span>
+        </div>
+      </div>
+      <div class="gallery-content">
+        <h2>Small business parking lot</h2>
+        <p>
+          Old, patchy asphalt was replaced, and we added fresh striping and accessible stalls so customers
+          have a safer, easier place to park.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Commercial</span>
+          <span class="tag">Parking lot</span>
+          <span class="tag">Striping</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 3 -->
+    <article class="gallery-card">
+      <div class="gallery-row">
+        <div class="gallery-side">
+          <img src="assets/before-hoa-1.jpg" alt="HOA road with potholes before repair" />
+          <span class="label-pill">Before</span>
+        </div>
+        <div class="gallery-side">
+          <img src="assets/after-hoa-1.jpg" alt="Smooth HOA road after resurfacing" />
+          <span class="label-pill">After</span>
+        </div>
+      </div>
+      <div class="gallery-content">
+        <h2>HOA community roads</h2>
+        <p>
+          Potholes and uneven sections were repaired, and the internal roads were resurfaced for a smoother,
+          safer drive through the neighborhood.
+        </p>
+        <div class="tag-row">
+          <span class="tag">HOA</span>
+          <span class="tag">Roads</span>
+          <span class="tag">Resurfacing</span>
+        </div>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Pennsylvania Paving Company, LLC. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
